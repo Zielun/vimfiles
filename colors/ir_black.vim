@@ -1,4 +1,4 @@
-" ir_black color scheme
+" ir_black color scheme + customization
 " More at: http://blog.infinitered.com
 
 
@@ -209,5 +209,8 @@ hi link javaScriptNumber      Number
 " Special for CSharp
 hi  link csXmlTag             Keyword      
 
-
-" Special for PHP
+" Special for diff
+hi DiffAdd guibg=#0f6a00 term=reverse cterm=bold ctermbg=28 ctermfg=white 
+hi DiffChange term=reverse cterm=bold ctermbg=184 ctermfg=black 
+hi DiffText term=reverse cterm=bold ctermbg=white ctermfg=black 
+hi DiffDelete term=reverse cterm=bold ctermbg=red ctermfg=black 
