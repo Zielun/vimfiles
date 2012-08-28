@@ -1,3 +1,24 @@
+" ===============================================================
+" @file: .vimrc
+" ---------------------------------------------------------------
+" @author: Zielun (http://michalzielinski.pl/)
+" @details: https://github.com/Zielun/vimfiles
+" 
+" contents:
+" ---------------------
+"     0. GENERAL
+"     1. PLUGINS
+"     2. MAPPINGS
+"     3. STATUS LINE 
+"
+" 
+
+
+
+
+" ================================
+"       0. GENERAL
+" ================================
 set nocompatible
 set encoding=utf8
 set visualbell           
@@ -45,7 +66,7 @@ set nofoldenable    "open all folds
 set foldlevel=1
 " set foldcolumn=3
 
-
+" enable pathogen
 call pathogen#infect()
 call pathogen#helptags()
 
@@ -60,39 +81,9 @@ colorscheme ir_black
 
 
 
-let mapleader = ","
-
-"disable arrow keys
-noremap  <Up> ""
-noremap! <Up> <Esc>
-noremap  <Down> ""
-noremap! <Down> <Esc>
-" noremap  <Left> ""
-" noremap! <Left> <Esc>
-" noremap  <Right> ""
-" noremap! <Right> <Esc>
-
-" Buffers
-noremap <leader>bn :badd 
-noremap <right> :bn<CR>
-noremap <left> :bp<CR>
-
-" Quick jumping to split windows
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
-
-" Clear search highlights
-map <leader>/ :nohlsearch<CR>
-
-" Save file that requires root and was opened without sudo
-cmap w!! w !sudo tee % >/dev/null
-
-
 
 "====================================
-"		PLUGINS
+"		1. PLUGINS
 "====================================
 
 " NERDTree
@@ -137,15 +128,54 @@ let g:html_indent_inctags = "html,body,head,tbody"
 let g:html_indent_script1 = "inc"
 let g:html_indent_style1 = "inc"
 
+" Syntastic
+" -----------------------------------
 let g:syntastic_javascript_checker = "jshint"
-" let g:syntastic_enable_signs=1
-" let g:syntastic_auto_loclist=1
-" let g:syntastic_quiet_warnings=0
-
-
 let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='⚠'
 
+
+
+
+" ==========================================
+"       2. MAPPINGS
+" ==========================================
+
+let mapleader = ","
+
+"disable arrow keys
+noremap  <Up> ""
+noremap! <Up> <Esc>
+noremap  <Down> ""
+noremap! <Down> <Esc>
+" noremap  <Left> ""
+" noremap! <Left> <Esc>
+" noremap  <Right> ""
+" noremap! <Right> <Esc>
+
+" use left-right arrow keys for buffers
+noremap <leader>bn :badd 
+noremap <right> :bn<CR>
+noremap <left> :bp<CR>
+
+" Quick jumping to split windows
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+
+" Clear search highlights
+map <leader>/ :nohlsearch<CR>
+
+" Save file that requires root and was opened without sudo
+cmap w!! w !sudo tee % >/dev/null
+
+
+
+
+" =============================================
+"       3. STATUS LINE
+" =============================================
 
 set laststatus=2
 set statusline=%f       "tail of the filename
