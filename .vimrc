@@ -13,14 +13,12 @@
 "
 " 
 
-
-
-
 " ================================
 "       0. GENERAL
 " ================================
+
 set nocompatible
-set encoding=utf8
+set encoding=utf-8
 set visualbell           
 set noerrorbells 
 set nobackup
@@ -78,7 +76,7 @@ syntax enable
 set background=dark
 colorscheme ir_black
 
-
+let mapleader = ","
 
 
 
@@ -141,13 +139,11 @@ let g:syntastic_warning_symbol='⚠'
 "       2. MAPPINGS
 " ==========================================
 
-let mapleader = ","
-
 "disable arrow keys
-noremap  <Up> ""
-noremap! <Up> <Esc>
-noremap  <Down> ""
-noremap! <Down> <Esc>
+" noremap  <Up> ""
+" noremap! <Up> <Esc>
+" noremap  <Down> ""
+" noremap! <Down> <Esc>
 " noremap  <Left> ""
 " noremap! <Left> <Esc>
 " noremap  <Right> ""
