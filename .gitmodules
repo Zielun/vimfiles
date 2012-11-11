@@ -33,4 +33,4 @@
 	url = https://github.com/pangloss/vim-javascript.git
 [submodule "bundle/syntastic"]
 	path = bundle/syntastic
-	url = https://github.com/scrooloose/syntastic/
+	url = https://github.com/scrooloose/syntastic.git
