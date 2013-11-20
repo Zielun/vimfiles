@@ -18,7 +18,9 @@
 " ================================
 
 set nocompatible
+" set encoding=utf-8
 set encoding=utf-8
+set fileencoding=utf-8
 set visualbell           
 set noerrorbells 
 set nobackup
@@ -27,7 +29,7 @@ set nowb
 set autowrite       "write file when switching between files
 set tm=500
 set backspace=2     "fix backspace
-set clipboard=unnamed
+set clipboard+=unnamed
 set number
 set showmode
 set noruler
@@ -36,7 +38,6 @@ set mousehide       "hide cursor when typing
 set wildmenu
 set wildmode=list:longest
 set cmdheight=2
-set listchars=tab:▸\ ,eol:¬
 set t_Co=256
 
 " search
@@ -129,10 +130,14 @@ let g:html_indent_style1 = "inc"
 " Syntastic
 " -----------------------------------
 let g:syntastic_javascript_checker = "jshint"
-let g:syntastic_error_symbol='✗'
-let g:syntastic_warning_symbol='⚠'
+" let g:syntastic_error_symbol='!!',
+" let g:syntastic_warning_symbol='~',
 
+" Freemarker highlighting
+au BufRead,BufNewFile *.ftl set filetype=ftl
+au! Syntax ftl source ~/.vim/colors/ftl.vim
 
+nnoremap ,m :w <BAR> !lessc % > %:t:r.css<CR><space>
 
 
 " ==========================================
