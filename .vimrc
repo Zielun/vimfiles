@@ -85,6 +85,9 @@ let mapleader = ","
 "		1. PLUGINS
 "====================================
 
+
+" let Taglist_Ctags_Cmd = "/usr/local/bin/ctags"
+
 " NERDTree
 " -----------------------------------
 nmap <F2> :NERDTreeToggle<CR>
@@ -129,7 +132,8 @@ let g:html_indent_style1 = "inc"
 
 " Syntastic
 " -----------------------------------
-let g:syntastic_javascript_checker = "jshint"
+let g:syntastic_javascript_checkers = ["jshint"]
+let g:syntastic_html_tidy_ignore_errors = ["trimming empty <span>"]
 " let g:syntastic_error_symbol='!!',
 " let g:syntastic_warning_symbol='~',
 
