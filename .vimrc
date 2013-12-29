@@ -143,6 +143,15 @@ au! Syntax ftl source ~/.vim/colors/ftl.vim
 
 nnoremap ,m :w <BAR> !lessc % > %:t:r.css<CR><space>
 
+" YouCompleteMe
+" -----------------------------------
+let g:ycm_add_preview_to_completeopt=0
+let g:ycm_confirm_extra_conf=0
+let g:ycm_min_num_of_chars_for_completion = 2
+let g:ycm_collect_identifiers_from_tags_files = 1
+set completeopt-=preview
+
+
 
 " ==========================================
 "       2. MAPPINGS
