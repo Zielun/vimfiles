@@ -3,26 +3,23 @@
 " ---------------------------------------------------------------
 " @author: Zielun (http://michalzielinski.pl/)
 " @details: https://github.com/Zielun/vimfiles
-" 
+"
 " contents:
 " ---------------------
 "     0. GENERAL
 "     1. PLUGINS
 "     2. MAPPINGS
-"     3. STATUS LINE 
-"
-" 
+
 
 " ================================
 "       0. GENERAL
 " ================================
 
 set nocompatible
-" set encoding=utf-8
 set encoding=utf-8
 set fileencoding=utf-8
-set visualbell           
-set noerrorbells 
+set visualbell
+set noerrorbells
 set nobackup
 set noswapfile
 set nowb
@@ -33,7 +30,7 @@ set clipboard+=unnamed
 set number
 set showmode
 set noruler
-set showmatch		"showing pairs of matching bracket 
+set showmatch		"showing pairs of matching bracket
 set mousehide       "hide cursor when typing
 set wildmenu
 set wildmode=list:longest
@@ -52,12 +49,12 @@ set tabstop=4
 set shiftwidth=4
 set smarttab
 set linebreak
-set textwidth=500 
+set textwidth=500
 set autoindent
 set smartindent
 set wrap
 set showbreak=...
-" 
+"
 " folding
 set foldmethod=indent
 set foldnestmax=10
@@ -102,18 +99,23 @@ nmap <F1> :MRU<CR>
 let MRU_Max_Entries = 150
 let MRU_Window_Height = 10
 let MRU_Max_Menu_Entries = 20
-let MRU_Use_Current_Window = 1 
+let MRU_Use_Current_Window = 1
 
 " Command-T
 " -----------------------------------
-let CommandTMaxFiles = 120000
-let CommandTMaxDepth = 50
-let g:CommandTCancelMap = "<C-x>"
+" let CommandTMaxFiles = 120000
+" let CommandTMaxDepth = 50
+" let g:CommandTCancelMap = "<C-x>"
+
+" CptrlP
+" -----------------------------------
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
 
 " TComment
 " -----------------------------------
 map <leader>c <c-_><c-_>
-map <leader>C <c-_>b 
+map <leader>C <c-_>b
 
 " YankRing
 " -----------------------------------
@@ -151,7 +153,33 @@ let g:ycm_min_num_of_chars_for_completion = 2
 let g:ycm_collect_identifiers_from_tags_files = 1
 set completeopt-=preview
 
+" Vim Airline
+" ----------------------------------
+set laststatus=2
+let g:bufferline_echo = 0
+set noshowmode
+let g:airline_mode_map = {
+    \ '__' : '-',
+    \ 'n'  : 'N',
+    \ 'i'  : 'I',
+    \ 'R'  : 'R',
+    \ 'c'  : 'C',
+    \ 'v'  : 'V',
+    \ 'V'  : 'V',
+    \ '' : 'V',
+    \ 's'  : 'S',
+    \ 'S'  : 'S',
+    \ '' : 'S',
+    \ }
+" let g:airline_left_sep = '▶'
+" let g:airline_right_sep = '◀'
 
+" Bufferline
+" ----------------------------
+let g:bufferline_echo = 0
+autocmd VimEnter *
+\ let &statusline='%{bufferline#refresh_status()}'
+  \ .bufferline#get_status_string()
 
 " ==========================================
 "       2. MAPPINGS
@@ -168,7 +196,7 @@ set completeopt-=preview
 " noremap! <Right> <Esc>
 
 " use left-right arrow keys for buffers
-noremap <leader>bn :badd 
+noremap <leader>bn :badd
 noremap <right> :bn<CR>
 noremap <left> :bp<CR>
 
@@ -183,34 +211,4 @@ map <leader>/ :nohlsearch<CR>
 
 " Save file that requires root and was opened without sudo
 cmap w!! w !sudo tee % >/dev/null
-
-
-
-
-" =============================================
-"       3. STATUS LINE
-" =============================================
-
-set laststatus=2
-set statusline=%f       "tail of the filename
- 
-"display a warning if the file format isn't Unix
-set statusline+=%#warningmsg#
-set statusline+=%{&ff!='unix'?'['.&ff.']':''}
-set statusline+=%*
- 
-"display a warning if file encoding isn't UTf-8
-set statusline+=%#warningmsg#
-set statusline+=%{(&fenc!='utf-8'&&&fenc!='')?'['.&fenc.']':''}
-set statusline+=%*
- 
-set statusline+=%h      "help file flag
-set statusline+=%y      "filetype
-set statusline+=%r      "read only flag
-set statusline+=%m      "modified flag
- 
-"Syntastic!!
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
 
